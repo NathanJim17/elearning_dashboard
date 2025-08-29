@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useCarousel } from '@/hooks/useCarousel';
 import Link from 'next/link';
 
+
 const Landing = () => {
 
     const currentImage = useCarousel({ totalImages : 3 })
@@ -51,8 +52,37 @@ const Landing = () => {
                 ))}
             </div>
         </motion.div>
-        <motion.div>
-            
+        <motion.div 
+          initial={{ y:20, opacity: 0 }}
+          animate={{ y:0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ amount: 0.3, once: true}}
+          className="landing__featured"
+        >
+            <h2 className="landing__featured-title">Featured Courses</h2>
+            <p className="landing__featured-description">
+                From beginner to advanced, in all industries, we have the right 
+                courses just for you and preparing your entire journey for learning 
+                and making the most.
+            </p>
+
+            <div className="landing__tags">
+                {[ 
+                    "Web Development", 
+                    "Enterprise IT", 
+                    "React Nextjs", 
+                    "Javascript", 
+                    "Backend Development"
+                 ].map((tag, index) => (
+                    <span key={index} className="landing__tag">
+                        {tag}
+                    </span>
+                 ))}
+            </div>
+
+            <div className="landing__courses">
+                {/* COURSES DISPLAY */}
+            </div>
         </motion.div>
     </motion.div>
   )
